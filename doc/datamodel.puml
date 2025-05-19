@@ -1,0 +1,37 @@
+@startuml
+' Use Information Engineering notation
+!define IE_DIAGRAM
+
+' Entity Definitions
+entity "Persoon" as Persoon {
+  * id : Long <<PK>>
+  --
+  firstName : String
+  lastName : String
+}
+
+entity "Organisatie" as Organisatie {
+  * id : Long <<PK>>
+  --
+  name : String
+}
+
+entity "Credential" as Credential {
+  * id : Long <<PK>>
+  --
+  type : String <<not null>>
+}
+
+entity "Rol" as Rol {
+  * id : Long <<PK>>
+  --
+  rolNaam : String <<not null>>
+}
+
+' Relationships
+Organisatie ||--o{ Persoon : "has"
+Persoon ||--o{ Credential : "has"
+Persoon ||--o{ Rol : "has"
+Rol ||--o{ Persoon : "belongs to (many-to-many)"
+
+@enduml
