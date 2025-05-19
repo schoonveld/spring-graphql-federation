@@ -1,0 +1,13 @@
+type Persoon {
+  id: ID!
+  firstName: String
+  lastName: String
+  dateOfBirth: LocalDate!
+}
+
+scalar LocalDate
+
+type Query {
+  searchPersons(firstName: String, lastName: String, dateOfBirth: LocalDate): [Persoon]
+  findPersonById(id: ID!): Persoon
+}

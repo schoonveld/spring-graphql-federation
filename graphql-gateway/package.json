@@ -1,0 +1,25 @@
+{
+  "name": "graphql-gateway",
+  "version": "1.0.0",
+  "description": "GraphQL Gateway server running federated supergraphs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/schoonveld/spring-graphql-federation.git"
+  },
+  "author": "Steffen Schoonveld",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/schoonveld/spring-graphql-federation/issues"
+  },
+  "homepage": "https://github.com/schoonveld/spring-graphql-federation#readme",
+  "type": "module",
+  "dependencies": {
+    "@apollo/gateway": "^2.10.2",
+    "@apollo/server": "^4.12.1",
+    "graphql": "^16.11.0"
+  }
+}
