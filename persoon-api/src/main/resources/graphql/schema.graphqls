@@ -1,0 +1,17 @@
+extend schema
+@link(url: "https://specs.apollo.dev/federation/v2.7",
+  import: ["@key"])
+
+type Persoon @key(fields: "id"){
+  id: ID!
+  firstName: String
+  lastName: String
+  dateOfBirth: LocalDate!
+}
+
+scalar LocalDate
+
+type Query {
+  searchPersons(firstName: String, lastName: String, dateOfBirth: LocalDate): [Persoon]
+  findPersonById(id: ID!): Persoon
+}

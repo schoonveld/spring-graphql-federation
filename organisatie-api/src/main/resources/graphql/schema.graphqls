@@ -1,0 +1,21 @@
+extend schema
+@link(url: "https://specs.apollo.dev/federation/v2.7",
+    import: ["@key"])
+
+scalar Long
+    @specifiedBy(url: "https://scalars.graphql.org/andimarek/date-time.html")
+
+type Query {
+    organisatieById(organisatieId: ID!): Organisatie
+}
+
+type Persoon @key(fields: "id") {
+    id: ID!
+    organisatie: Organisatie
+}
+
+type Organisatie {
+    id: ID!
+    naam: String!
+    gebruikers: [Persoon]!
+}

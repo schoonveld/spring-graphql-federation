@@ -1,0 +1,33 @@
+extend schema
+@link(url: "https://specs.apollo.dev/federation/v2.7",
+    import: ["@key"])
+
+scalar Long
+    @specifiedBy(url: "https://scalars.graphql.org/andimarek/date-time.html")
+
+enum CredentialType {
+    PASSWORD
+    TOKEN
+    DIGID
+}
+
+type Persoon @key(fields: "id"){
+    id: ID!
+    rollen(rolNaam: String): [Rol!]!
+    credentials: [Credential!]!
+}
+
+type Rol {
+    id: ID!
+    rolNaam: String!
+}
+
+type Credential {
+    id: ID!
+    gebruiker: Persoon!
+    type: CredentialType!
+}
+
+type Query {
+    rolByType(typeNaam: String!): Rol!
+}

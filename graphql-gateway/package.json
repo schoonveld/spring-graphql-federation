@@ -1,0 +1,30 @@
+{
+  "name": "graphql-gateway",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc",
+    "esbuild": "esbuild ./dist/index.js --allow-overwrite --bundle --format=cjs --platform=node --sourcemap --outdir=dist",
+    "build": "rm -rf ./dist && node esbuild.config.mjs",
+    "start": "node dist/index.cjs",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@apollo/gateway": "^2.10.2",
+    "@apollo/server": "^4.12.1",
+    "@luckycatfactory/esbuild-graphql-loader": "^3.8.1",
+    "graphql": "^16.11.0",
+    "graphql-tag": "^2.12.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.19",
+    "esbuild": "0.25.4",
+    "typescript": "^5.8.3"
+  },
+  "type": "module"
+}

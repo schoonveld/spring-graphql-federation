@@ -8,6 +8,7 @@ entity "Persoon" as Persoon {
   --
   firstName : String
   lastName : String
+  dateOfBirth : Date
 }
 
 entity "Organisatie" as Organisatie {
@@ -19,13 +20,20 @@ entity "Organisatie" as Organisatie {
 entity "Credential" as Credential {
   * id : Long <<PK>>
   --
-  type : String <<not null>>
+  type : CredentialType <<not null>>
 }
 
 entity "Rol" as Rol {
   * id : Long <<PK>>
   --
   rolNaam : String <<not null>>
+}
+
+' Enum Definition
+enum CredentialType {
+  PASSWORD
+  TOKEN
+  DIGID
 }
 
 ' Relationships
